@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: product-service
+  datasource:
+    # This URL connects to your local Docker container
+    url: jdbc:postgresql://localhost:5432/product_db
+    username: admin
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # Creates tables automatically
+    show-sql: true     # Shows SQL queries in logs
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8080

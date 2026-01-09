@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15              # The version of the database
+    container_name: cloudspire-db   # The name we give our container
+    environment:
+      - POSTGRES_USER=admin         # Username
+      - POSTGRES_PASSWORD=password  # Password
+      - POSTGRES_DB=product_db      # Database name to create automatically
+    ports:
+      - "5432:5432"                 # Open port 5432 for our Java app
+    volumes:
+      - postgres-data:/var/lib/postgresql/data # Save data so it doesn't vanish on restart
+
+volumes:
+  postgres-data:
