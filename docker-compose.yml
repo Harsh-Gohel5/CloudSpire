@@ -1,17 +1,29 @@
 version: '3.8'
-
 services:
   postgres:
-    image: postgres:15              # The version of the database
-    container_name: cloudspire-db   # The name we give our container
+    image: postgres:15
+    container_name: cloudspire-db
     environment:
-      - POSTGRES_USER=admin         # Username
-      - POSTGRES_PASSWORD=password  # Password
-      - POSTGRES_DB=product_db      # Database name to create automatically
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=product_db
     ports:
-      - "5432:5432"                 # Open port 5432 for our Java app
+      - "5432:5432"
     volumes:
-      - postgres-data:/var/lib/postgresql/data # Save data so it doesn't vanish on restart
+      - postgres-data:/var/lib/postgresql/data
+
+  order-db:
+    image: postgres:15
+    container_name: cloudspire-order-db
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=order_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - order-db-data:/var/lib/postgresql/data
 
 volumes:
   postgres-data:
+  order-db-data:
