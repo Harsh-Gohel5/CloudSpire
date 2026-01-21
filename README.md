@@ -8,7 +8,7 @@ CloudSpire is designed to handle high-concurrency traffic with a robust, scalabl
 Project Status
 --------------
 🚧 **Under Active Development**
-*Current Phase: Inter-Service Communication & Inventory Logic*
+*Current Phase: Inter-Service Communication & the Inventory Logic*
 
 Technical Architecture
 ----------------------
@@ -32,6 +32,6 @@ The repository is organized into the following core directories:
 * **`frontend/`**
     Next.js and React-based storefront application.
 * **`k8s/`**
-    Kubernetes manifests for deployment and orchestration.
+    Kubernetes for deployment and orchestration.
 * **`docker-compose.yml`**
     Local development environment setup.
