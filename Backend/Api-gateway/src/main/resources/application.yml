@@ -27,6 +27,12 @@ spring:
     gateway:
       default-filters:
         - TokenRelay
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:5173"
+            allowedMethods: "*"
+            allowedHeaders: "*"
       routes:
         - id: product-service
           uri: lb://product-service
