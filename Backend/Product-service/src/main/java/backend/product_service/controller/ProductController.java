@@ -42,4 +42,10 @@ public class ProductController {
     public List<Product> getAllProducts() {
         return productRepository.findAll(); // Reads from Database
     }
+    
+    @DeleteMapping("/{id}")      // Handles DELETE requests
+    @ResponseStatus(HttpStatus.NO_CONTENT) // Returns a 204 status (Success, no body)
+    public void deleteProduct(@PathVariable Long id) {
+        productRepository.deleteById(id); // Deletes from the PostgreSQL Database
+    }
 }
