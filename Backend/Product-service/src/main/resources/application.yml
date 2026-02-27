@@ -1,6 +1,15 @@
 spring:
   application:
     name: product-service
+  cloud:
+    aws:
+      credentials:
+        access-key: ${AWS_ACCESS_KEY_ID}
+        secret-key: ${AWS_SECRET_ACCESS_KEY}
+      region:
+        static: us-east-1 # Change if your bucket is in a different region
+      s3:
+        bucket: ${AWS_S3_BUCKET_NAME}
   datasource:
     # This URL connects to your local Docker container
     url: jdbc:postgresql://localhost:5432/product_db
@@ -21,8 +30,6 @@ server:
 eureka:
   instance:
     prefer-ip-address: true
-    
-  eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
